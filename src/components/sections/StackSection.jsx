@@ -11,7 +11,7 @@ const tools = [
 
 export default function StackSection() {
   return (
-    <section className="px-6 py-20 bg-muted/50">
+    <section id="stack" className="px-6 py-20 bg-muted/50">
       <div className="max-w-5xl mx-auto">
         <div className="mb-10">
           <h2 className="text-3xl font-bold tracking-tight">Tools & Skills</h2>
