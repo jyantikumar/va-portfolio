@@ -8,7 +8,8 @@ import {
   Code2, 
   Globe2,
   ExternalLink,
-  Eye
+  Eye,
+  Wallet
 } from 'lucide-react';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
@@ -148,20 +149,32 @@ const serviceSamplesData = {
     ],
     details: 'Built a responsive web app to track job interviews, manage application progress, and structure job hunting metrics using Laravel and React.'
   },
-  'mcu-hsics': {
-    id: 'mcu-hsics',
-    title: 'Hardware & Software Inventory Control System (HSICS)',
+  'spendwise': {
+    id: 'spendwise',
+    title: 'SpendWise — Financial Tracking Web App',
     category: 'Tech & Web Support',
-    description: 'Comprehensive inventory control platform designed for the Manila Central University ICT Department to track tech assets, hardware logs, and software licenses.',
-    tools: ['Laravel', 'Tailwind CSS', 'Alpine.js', 'PHP', 'MySQL'],
-    liveUrl: 'https://mcuhsics.freehosting.dev',
+    description: 'Full-stack web application for expense tracking, petty cash management, and financial summaries built with secure session controls and dynamic analytics.',
+    tools: ['Vue 3', 'Inertia.js', 'Laravel', 'Tailwind CSS', 'MySQL'],
+    liveUrl: 'http://spendwise.infinityfree.io',
     images: [
       {
-        url: '/samples/hsics.png',
-        caption: 'University ICT inventory management portal for tracking IT assets, equipment status, and user requests.'
+        url: '/samples/spendwise.png',
+        caption: 'SpendWise dashboard featuring real-time expense breakdowns, category summaries, and transactional logs.'
+      },
+      {
+        url: '/samples/spendwise-2.png',
+        caption: 'SpendWise dashboard featuring real-time expense breakdowns, category summaries, and transactional logs.'
+      },
+      {
+        url: '/samples/spendwise-3.png',
+        caption: 'SpendWise dashboard featuring real-time expense breakdowns, category summaries, and transactional logs.'
+      },
+      {
+        url: '/samples/spendwise-4.png',
+        caption: 'SpendWise dashboard featuring real-time expense breakdowns, category summaries, and transactional logs.'
       }
     ],
-    details: 'Engineered an end-to-end inventory control system managing hardware allocations, software licenses, and departmental equipment tracking.'
+    details: 'Engineered a full-stack expense and petty cash management system featuring authentication, category filtering, transactional tracking, and secure session management.'
   },
   'weeekly-website': {
     id: 'weeekly-website',
@@ -390,7 +403,7 @@ export default function ServicesSection() {
 
           {/* TAB 3: TECH & WEB SUPPORT (LIVE PROJECTS) */}
           <TabsContent value="tech" className="w-full mt-0 focus-visible:outline-none">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5">
               
               {/* Job Tracker */}
               <Card 
@@ -418,25 +431,25 @@ export default function ServicesSection() {
                 </CardContent>
               </Card>
 
-              {/* MCU HSICS Inventory System */}
+              {/* SpendWise Financial Tracking */}
               <Card 
-                onClick={() => handleCardClick('mcu-hsics')}
+                onClick={() => handleCardClick('spendwise')}
                 className="border-border bg-card hover:border-cyan-accent/80 hover:shadow-md cursor-pointer transition-all duration-200 group flex flex-col justify-between"
               >
                 <CardHeader className="flex flex-row items-center gap-3 space-y-0 p-5 pb-3">
                   <div className="p-2.5 rounded-lg bg-navy/10 dark:bg-sage/10 text-teal-brand dark:text-sage shrink-0 group-hover:scale-110 transition-transform">
-                    <Database className="w-5 h-5" />
+                    <Wallet className="w-5 h-5" />
                   </div>
                   <div className="flex-1">
                     <div className="flex items-center justify-between">
-                      <CardTitle className="text-base font-bold text-foreground">MCU HSICS Inventory System</CardTitle>
+                      <CardTitle className="text-base font-bold text-foreground">SpendWise Financial App</CardTitle>
                       <Eye className="w-4 h-4 text-cyan-accent opacity-0 group-hover:opacity-100 transition-opacity shrink-0" />
                     </div>
-                    <CardDescription className="text-xs mt-0.5">Laravel, MySQL & Alpine.js System</CardDescription>
+                    <CardDescription className="text-xs mt-0.5">Vue 3, Inertia.js & Laravel App</CardDescription>
                   </div>
                 </CardHeader>
                 <CardContent className="p-5 pt-0 text-xs text-muted-foreground leading-relaxed flex-1 flex flex-col justify-between">
-                  <span>University ICT hardware and software inventory control platform for managing IT assets.</span>
+                  <span>Expense tracking and petty cash management system with dynamic reporting and session controls.</span>
                   <div className="mt-4 pt-3 border-t border-border/50 flex items-center justify-between text-[11px] font-semibold text-teal-brand dark:text-cyan-accent">
                     <span>View Screenshots & Live Demo</span>
                     <ExternalLink className="w-3.5 h-3.5" />
