@@ -1,24 +1,8 @@
-import React from "react"
-import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Calendar, Building2, CheckCircle2, Briefcase } from "lucide-react"
-
-// Simple, lightweight AnimatedList wrapper (React Bits / Framer-Motion style)
-export function AnimatedList({ children, className = "" }) {
-  return (
-    <div className={`flex flex-col gap-5 ${className}`}>
-      {React.Children.map(children, (child, index) => (
-        <div
-          key={index}
-          className="transition-all duration-500 ease-out animate-in fade-in slide-in-from-bottom-4 fill-mode-backwards"
-          style={{ animationDelay: `${index * 150}ms` }}
-        >
-          {child}
-        </div>
-      ))}
-    </div>
-  )
-}
+import React, { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Calendar, Building2, CheckCircle2 } from "lucide-react";
 
 const experience = [
   {
@@ -66,20 +50,89 @@ const experience = [
     ],
     tags: ["Troubleshooting", "Technical Support", "Systems Setup"],
   },
-]
+];
+
+// Individual Stack Card Component
+function StackedCard({ item, index, total, containerRef }) {
+  const cardRef = useRef(null);
+
+  // Track scroll position of the section
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ['start end', 'end start']
+  });
+
+  // Calculate dynamic scaling and offsets based on card position index
+  const scale = useTransform(
+    scrollYProgress,
+    [index / total, 1],
+    [1, 1 - (total - index) * 0.03]
+  );
+
+  return (
+    <div 
+      ref={cardRef} 
+      className="sticky top-24 mb-8 last:mb-0"
+      style={{ zIndex: index + 1 }}
+    >
+      <motion.div style={{ scale }}>
+        <Card className="border-border bg-card/95 backdrop-blur-md shadow-lg hover:border-cyan-accent/50 transition-colors">
+          <CardContent className="p-6 sm:p-8">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 border-b border-border/60">
+              <div>
+                <h3 className="text-xl font-bold text-foreground tracking-tight">
+                  {item.role}
+                </h3>
+                <div className="flex items-center gap-2 text-xs sm:text-sm text-teal-brand dark:text-cyan-accent font-medium mt-1">
+                  <Building2 className="w-4 h-4 shrink-0" />
+                  <span>{item.org}</span>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-md bg-muted text-muted-foreground self-start sm:self-auto border border-border/50">
+                <Calendar className="w-3.5 h-3.5 text-cyan-accent" />
+                <span>{item.period}</span>
+              </div>
+            </div>
+
+            {/* Bullets */}
+            <ul className="mt-5 space-y-2.5 text-xs sm:text-sm text-muted-foreground leading-relaxed">
+              {item.bullets.map((bullet, bIdx) => (
+                <li key={bIdx} className="flex items-start gap-2.5">
+                  <CheckCircle2 className="w-4 h-4 text-cyan-accent shrink-0 mt-0.5" />
+                  <span>{bullet}</span>
+                </li>
+              ))}
+            </ul>
+
+            {/* Tags */}
+            <div className="flex flex-wrap gap-2 mt-6 pt-4 border-t border-border/40">
+              {item.tags.map((tag, tIdx) => (
+                <Badge 
+                  key={tIdx} 
+                  variant="secondary" 
+                  className="text-xs bg-muted/80 hover:bg-muted text-foreground border border-border/50 font-medium px-3 py-1"
+                >
+                  {tag}
+                </Badge>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
+      </motion.div>
+    </div>
+  );
+}
 
 export default function ExperienceSection() {
+  const containerRef = useRef(null);
+
   return (
-    <section id="work" className="py-12 lg:py-16 bg-background border-b border-border">
-      {/* Container matching full layout width */}
+    <section id="work" ref={containerRef} className="py-16 lg:py-24 bg-background border-b border-border">
       <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-10">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-brand/10 text-teal-brand dark:text-sage text-xs font-semibold mb-3">
-            <Briefcase className="w-3.5 h-3.5" />
-            <span>Track Record</span>
-          </div>
+        <div className="text-center max-w-2xl mx-auto mb-12">
           <h2 className="text-3xl font-extrabold text-foreground tracking-tight">
             Relevant Experience
           </h2>
@@ -88,59 +141,20 @@ export default function ExperienceSection() {
           </p>
         </div>
 
-        {/* React Bits Animated List Container */}
-        <AnimatedList>
+        {/* Scroll Stack Container */}
+        <div className="relative max-w-4xl mx-auto">
           {experience.map((item, idx) => (
-            <Card 
+            <StackedCard 
               key={idx} 
-              className="border-border bg-card hover:border-cyan-accent/60 hover:shadow-md transition-all duration-300 transform hover:-translate-y-0.5"
-            >
-              <CardContent className="p-6 sm:p-8">
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 border-b border-border/60">
-                  <div>
-                    <h3 className="text-xl font-bold text-foreground tracking-tight">
-                      {item.role}
-                    </h3>
-                    <div className="flex items-center gap-2 text-xs sm:text-sm text-teal-brand dark:text-cyan-accent font-medium mt-1">
-                      <Building2 className="w-4 h-4 shrink-0" />
-                      <span>{item.org}</span>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-md bg-muted text-muted-foreground self-start sm:self-auto border border-border/50">
-                    <Calendar className="w-3.5 h-3.5 text-cyan-accent" />
-                    <span>{item.period}</span>
-                  </div>
-                </div>
-
-                {/* Bullets */}
-                <ul className="mt-5 space-y-2.5 text-xs sm:text-sm text-muted-foreground leading-relaxed">
-                  {item.bullets.map((bullet, bIdx) => (
-                    <li key={bIdx} className="flex items-start gap-2.5">
-                      <CheckCircle2 className="w-4 h-4 text-cyan-accent shrink-0 mt-0.5" />
-                      <span>{bullet}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                {/* Skill Badges */}
-                <div className="flex flex-wrap gap-2 mt-6 pt-4 border-t border-border/40">
-                  {item.tags.map((tag, tIdx) => (
-                    <Badge 
-                      key={tIdx} 
-                      variant="secondary" 
-                      className="text-xs bg-muted/80 hover:bg-muted text-foreground border border-border/50 font-medium px-3 py-1"
-                    >
-                      {tag}
-                    </Badge>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+              item={item} 
+              index={idx} 
+              total={experience.length}
+              containerRef={containerRef} 
+            />
           ))}
-        </AnimatedList>
+        </div>
 
       </div>
     </section>
-  )
+  );
 }
