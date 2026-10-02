@@ -8,19 +8,34 @@ import {
   Menu, 
   X,
   ChevronRight,
-  Sparkles,
   MapPin,
   Mail,
-  Home
+  Home,
+  ExternalLink
 } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
+// Inline LinkedIn Icon SVG Component
+function LinkedInIcon({ className = "w-3.5 h-3.5" }) {
+  return (
+    <svg 
+      className={className} 
+      fill="currentColor" 
+      viewBox="0 0 24 24" 
+      aria-hidden="true"
+    >
+      <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.64a1.68 1.68 0 1 0 0 3.36 1.68 1.68 0 0 0 0-3.36Z" />
+    </svg>
+  );
+}
+
 export default function SidebarNavigation() {
   const [isOpen, setIsOpen] = useState(false);
 
-  // Replace '/profile.jpg' with the exact filename in your public folder (e.g., '/profile.png', '/avatar.jpg')
   const profileImageSrc = "/Formal.jpg";
+  const emailAddress = "jyantiaustriakumar@gmail.com";
+  const linkedinUrl = "https://www.linkedin.com/in/jyantikumar";
 
   const navItems = [
     { label: "Home", href: "#hero", icon: Home },
@@ -40,7 +55,6 @@ export default function SidebarNavigation() {
             alt="Jyanti Kumar" 
             className="w-9 h-9 rounded-full object-cover border border-border"
             onError={(e) => {
-              // Fallback if image path is different
               e.currentTarget.style.display = 'none';
             }}
           />
@@ -107,19 +121,37 @@ export default function SidebarNavigation() {
               Jyanti Kumar
             </h2>
             <p className="text-xs text-teal-brand dark:text-cyan-accent font-medium mt-0.5">
-              Technical Operations & Data VA
+              General, Tech Ops & Data VA
             </p>
 
-            {/* Basic Info Badges */}
-            <div className="mt-3 flex flex-col gap-1.5 w-full text-[11px] text-muted-foreground">
+            {/* Direct Contact Details */}
+            <div className="mt-3.5 flex flex-col gap-2 w-full text-[11px] text-muted-foreground pt-3 border-t border-border/50">
               <div className="flex items-center justify-center gap-1.5">
                 <MapPin className="w-3.5 h-3.5 text-cyan-accent shrink-0" />
                 <span>Metro Manila, PH · Remote</span>
               </div>
-              <div className="flex items-center justify-center gap-1.5">
+
+              <a 
+                href={`mailto:${emailAddress}`} 
+                className="flex items-center justify-center gap-1.5 hover:text-cyan-accent transition-colors group"
+                title={emailAddress}
+              >
                 <Mail className="w-3.5 h-3.5 text-cyan-accent shrink-0" />
-                <span className="truncate">Open for Q4 Projects</span>
-              </div>
+                <span className="truncate max-w-[180px] group-hover:underline font-medium">
+                  {emailAddress}
+                </span>
+              </a>
+
+              <a 
+                href={linkedinUrl} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="flex items-center justify-center gap-1.5 text-teal-brand dark:text-cyan-accent hover:underline font-semibold mt-0.5"
+              >
+                <LinkedInIcon className="w-3.5 h-3.5 shrink-0" />
+                <span>Connect on LinkedIn</span>
+                <ExternalLink className="w-3 h-3 opacity-70" />
+              </a>
             </div>
           </div>
 
@@ -157,10 +189,8 @@ export default function SidebarNavigation() {
           </nav>
         </div>
 
-        {/* Bottom Section: Call to Action & Subtext */}
+        {/* Bottom Section: Call to Action */}
         <div className="space-y-3 pt-4 border-t border-border mt-6">
-          
-
           <Button 
             size="lg" 
             asChild
