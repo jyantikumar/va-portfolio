@@ -16,7 +16,7 @@ import { Card } from '@/components/ui/card';
 
 export default function HeroSection() {
   return (
-    <section className="relative overflow-hidden bg-background py-16 lg:py-24 border-b border-border">
+    <section id="hero" className="relative overflow-hidden bg-background py-16 lg:py-24 border-b border-border">
       {/* Background Subtle Gradient Highlights */}
       <div className="absolute -top-24 -left-20 w-96 h-96 bg-sage/10 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute top-1/2 -right-20 w-96 h-96 bg-cyan-accent/10 rounded-full blur-3xl pointer-events-none" />
@@ -38,19 +38,19 @@ export default function HeroSection() {
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-accent opacity-75"></span>
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-accent"></span>
                   </span>
-                  Available for Q4 Operations & Analytics Projects
+                  Available for GVA, Tech & Data Projects
                 </Badge>
               </div>
 
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-foreground leading-[1.15]">
-                Technical Operations & <br className="hidden sm:inline" />
+                General, Technical Operations & <br className="hidden sm:inline" />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-brand via-cyan-accent to-sage">
                   Data Virtual Assistant
                 </span>
               </h1>
 
               <p className="mt-4 text-sm sm:text-base text-muted-foreground leading-relaxed max-w-2xl">
-                I help busy executives and growing businesses streamline administrative workflows, transform raw operational data into actionable dashboards, and maintain tech systems using modern AI and Web tools.
+                I help busy executives and growing businesses manage daily administrative tasks, optimize operational workflows, transform raw data into clear dashboards, and maintain tech systems with modern AI tools.
               </p>
             </div>
 

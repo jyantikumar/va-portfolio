@@ -1,52 +1,51 @@
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Textarea } from "@/components/ui/textarea"
+import React from 'react';
+import { Button } from "@/components/ui/button";
+import { Calendar, Mail } from "lucide-react";
 
 export default function ContactSection() {
+  const calendlyUrl = "https://calendly.com/jyantiaustriakumar";
+  const email = "jyantiaustriakumar@gmail.com";
+
   return (
-    <section id="contact" className="px-6 py-20 bg-muted/50">
-      <div className="max-w-2xl mx-auto">
-        <div className="mb-8 text-center">
-          <h2 className="text-3xl font-bold tracking-tight">Get in Touch</h2>
-          <p className="text-muted-foreground mt-2">
-            Tell me what you need help with and I'll reply within 24 hours.
-          </p>
-        </div>
+    <section id="contact" className="py-16 bg-background border-b border-border">
+      <div className="max-w-3xl mx-auto px-4 text-center">
+        <h2 className="text-3xl font-extrabold text-foreground tracking-tight">
+          Let's Work Together
+        </h2>
+        <p className="mt-3 text-muted-foreground text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
+          Ready to streamline your technical operations or build custom dashboards? Pick a time on Calendly or send me a message directly.
+        </p>
 
-        <form
-          action="https://formspree.io/f/YOUR_FORMSPREE_ID"
-          method="POST"
-          className="space-y-5 bg-card p-6 rounded-lg border"
-        >
-          <div className="grid sm:grid-cols-2 gap-5">
-            <div className="space-y-2">
-              <Label htmlFor="name">Name</Label>
-              <Input id="name" name="name" placeholder="Jane Doe" required />
-            </div>
-            <div className="space-y-2">
-              <Label htmlFor="email">Email</Label>
-              <Input id="email" name="email" type="email" placeholder="jane@company.com" required />
-            </div>
-          </div>
-
-          <div className="space-y-2">
-            <Label htmlFor="message">What do you need help with?</Label>
-            <Textarea id="message" name="message" rows={5} placeholder="I run a small business and need help with..." required />
-          </div>
-
-          <Button type="submit" size="lg" className="w-full">
-            Send Message
+        {/* Action Buttons */}
+        <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <Button 
+            size="lg" 
+            asChild 
+            className="w-full sm:w-auto bg-teal-brand hover:bg-teal-brand-hover text-white font-semibold px-6 gap-2 shadow-sm"
+          >
+            <a href={calendlyUrl} target="_blank" rel="noopener noreferrer">
+              <Calendar className="w-4 h-4" />
+              Schedule a Call on Calendly
+            </a>
           </Button>
 
-          <p className="text-xs text-center text-muted-foreground">
-            Or email me directly at{" "}
-            <a href="mailto:jyantiaustriakumar@gmail.com" className="underline">
-              jyantiaustriakumar@gmail.com
+          <Button 
+            size="lg" 
+            variant="outline" 
+            asChild 
+            className="w-full sm:w-auto border-border hover:border-cyan-accent text-foreground px-6 gap-2 font-medium"
+          >
+            <a href={`mailto:${email}`}>
+              <Mail className="w-4 h-4 text-cyan-accent" />
+              Send an Email
             </a>
-          </p>
-        </form>
+          </Button>
+        </div>
+
+        <p className="mt-6 text-xs text-muted-foreground">
+          Direct email: <span className="font-medium text-foreground">{email}</span>
+        </p>
       </div>
     </section>
-  )
+  );
 }

@@ -217,7 +217,7 @@ export default function ServicesSection() {
   };
 
   return (
-    <section className="py-12 lg:py-16 bg-background border-b border-border">
+    <section id="services" className="py-12 lg:py-16 bg-background border-b border-border">
       {/* Full-width outer container matching HeroSection sidebar layout */}
       <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
         
@@ -263,7 +263,7 @@ export default function ServicesSection() {
                   </div>
                   <div className="flex-1">
                     <div className="flex items-center justify-between">
-                      <CardTitle className="text-base font-bold text-foreground">Calendar & Inbox Management</CardTitle>
+                      <CardTitle className="text-base font-bold text-foreground">Calendar & Schedule Management</CardTitle>
                       <Eye className="w-4 h-4 text-cyan-accent opacity-0 group-hover:opacity-100 transition-opacity shrink-0" />
                     </div>
                     <CardDescription className="text-xs mt-0.5">Schedule Optimization & Communication</CardDescription>

@@ -10,7 +10,8 @@ import {
   ChevronRight,
   Sparkles,
   MapPin,
-  Mail
+  Mail,
+  Home
 } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -22,6 +23,7 @@ export default function SidebarNavigation() {
   const profileImageSrc = "/Formal.jpg";
 
   const navItems = [
+    { label: "Home", href: "#hero", icon: Home },
     { label: "Services", href: "#services", icon: Layers },
     { label: "Experience", href: "#work", icon: Briefcase },
     { label: "Stack", href: "#stack", icon: Code2 },
