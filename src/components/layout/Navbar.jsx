@@ -15,6 +15,7 @@ import {
 } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import profileImageSrc from '@/assets/Formal.jpg';  
 
 // Inline LinkedIn Icon SVG Component
 function LinkedInIcon({ className = "w-3.5 h-3.5" }) {
@@ -32,8 +33,6 @@ function LinkedInIcon({ className = "w-3.5 h-3.5" }) {
 
 export default function SidebarNavigation() {
   const [isOpen, setIsOpen] = useState(false);
-
-  const profileImageSrc = "/Formal.jpg";
   const emailAddress = "jyantiaustriakumar@gmail.com";
   const linkedinUrl = "https://www.linkedin.com/in/jyantikumar";
 
