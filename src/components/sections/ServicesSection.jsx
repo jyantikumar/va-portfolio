@@ -29,8 +29,32 @@ import {
 } from '@/components/ui/carousel';
 import { Badge } from '@/components/ui/badge';
 
+// Asset Imports (PascalCase)
+import CalendarImage from '@/assets/samples/calendar.png';
+import NotionOneImage from '@/assets/samples/notion1.png';
+import NotionTwoImage from '@/assets/samples/notion2.png';
+import NotionThreeImage from '@/assets/samples/notion3.png';
+import FileManagementImage from '@/assets/samples/filemanagement.png';
+import DashboardEcommerceImage from '@/assets/samples/dashboard-ecommerce.png';
+import DashboardBrazilImage from '@/assets/samples/dashboard-brazil.png';
+import DashboardBiniImage from '@/assets/samples/dashboard-bini.png';
+import DashboardSuperstoreImage from '@/assets/samples/dashboard-superstore.png';
+import JobTrackerOneImage from '@/assets/samples/job-tracker-1.png';
+import JobTrackerTwoImage from '@/assets/samples/job-tracker-2.png';
+import JobTrackerThreeImage from '@/assets/samples/job-tracker-3.png';
+import SpendwiseOneImage from '@/assets/samples/spendwise.png';
+import SpendwiseTwoImage from '@/assets/samples/spendwise-2.png';
+import SpendwiseThreeImage from '@/assets/samples/spendwise-3.png';
+import SpendwiseFourImage from '@/assets/samples/spendwise-4.png';
+import SpendwiseFiveImage from '@/assets/samples/spendwise-5.png';
+import WeeeklyOneImage from '@/assets/samples/weeekly.png';
+import WeeeklyTwoImage from '@/assets/samples/weeekly2.png';
+import WeeeklyThreeImage from '@/assets/samples/weeekly3.png';
+import WeeeklyFourImage from '@/assets/samples/weeekly4.png';
+import VaPortfolioImage from '@/assets/samples/va-portfolio.png';
+
 // Consolidated service sample data including live-hosted web apps
-const serviceSamplesData = {
+const ServiceSamplesData = {
   // --- EXECUTIVE & ADMIN SAMPLES ---
   'calendar-management': {
     id: 'calendar-management',
@@ -40,7 +64,7 @@ const serviceSamplesData = {
     tools: ['Google Calendar', 'Google Workspace', 'Notion'],
     images: [
       {
-        url: '/samples/calendar.png',
+        url: CalendarImage,
         caption: 'Google Calendar matrix displaying organized meeting blocks, reminders, and scheduled availability.'
       }
     ],
@@ -54,11 +78,11 @@ const serviceSamplesData = {
     tools: ['Notion', 'Task Databases', 'Agile Workflows'],
     images: [
       {
-        url: '/samples/notion1.png',
+        url: NotionOneImage,
         caption: 'Structured Notion database view featuring task status tracking, category tagging, and assignees.'
       },
       {
-        url: '/samples/notion2.png',
+        url: NotionTwoImage,
         caption: 'Custom Notion board grid displaying project roadmaps and workflow progress.'
       }
     ],
@@ -72,11 +96,11 @@ const serviceSamplesData = {
     tools: ['Notion', 'Relational Databases', 'Google Workspace', 'Microsoft 365'],
     images: [
       {
-        url: '/samples/notion3.png',
+        url: NotionThreeImage,
         caption: 'Relational Notion Knowledge Base featuring topic tagging, subject categorization, and syntax-highlighted code references.'
       },
       {
-        url: '/samples/filemanagement.png',
+        url: FileManagementImage,
         caption: 'Structured directory architecture and organized digital records system.'
       }
     ],
@@ -92,19 +116,19 @@ const serviceSamplesData = {
     tools: ['Power BI', 'Tableau', 'DAX', 'Power Query', 'Data Modeling'],
     images: [
       {
-        url: '/samples/dashboard-ecommerce.png',
+        url: DashboardEcommerceImage,
         caption: 'E-Commerce KPI Dashboard (₱2.47M Revenue, 5K Orders) analyzing product ratings, delivery status, and return drivers.'
       },
       {
-        url: '/samples/dashboard-brazil.png',
+        url: DashboardBrazilImage,
         caption: 'Marketplace Operations Analytics (98K Orders, 13.5M Profits) evaluating customer locations, repeat buyer ratios, and top revenue categories.'
       },
       {
-        url: '/samples/dashboard-bini.png',
+        url: DashboardBiniImage,
         caption: 'BINI Spotify Streams Analysis Dashboard (1.3B Total Streams) tracking album performance trends and track popularity metrics.'
       },
       {
-        url: '/samples/dashboard-superstore.png',
+        url: DashboardSuperstoreImage,
         caption: 'Global Superstore Sales Performance Dashboard analyzing monthly margins (11.61%), top customer segments, and regional profitability.'
       }
     ],
@@ -118,7 +142,7 @@ const serviceSamplesData = {
     tools: ['SQL (MySQL)', 'Power Query', 'Excel', 'Pandas'],
     images: [
       {
-        url: '/samples/dashboard-ecommerce.png',
+        url: DashboardEcommerceImage,
         caption: 'Standardized and modeled multi-table customer orders dataset prior to visualization.'
       }
     ],
@@ -135,15 +159,15 @@ const serviceSamplesData = {
     liveUrl: 'https://trackjob.infinityfree.io/login',
     images: [
       {
-        url: '/samples/job-tracker-1.png',
+        url: JobTrackerOneImage,
         caption: 'Full-stack job tracking dashboard displaying status filters, search bars, and application lifecycle records.'
       },
       {
-        url: '/samples/job-tracker-2.png',
+        url: JobTrackerTwoImage,
         caption: 'Job Tracker dashboard showing the total applications logged, interviews, and hired roles.'
       },
       {
-        url: '/samples/job-tracker-3.png',
+        url: JobTrackerThreeImage,
         caption: 'Various graphs from the dashboard for data visualization.'
       }
     ],
@@ -154,24 +178,28 @@ const serviceSamplesData = {
     title: 'SpendWise — Financial Tracking Web App',
     category: 'Tech & Web Support',
     description: 'Full-stack web application for expense tracking, petty cash management, and financial summaries built with secure session controls and dynamic analytics.',
-    tools: ['Vue 3', 'Inertia.js', 'Laravel', 'Tailwind CSS', 'MySQL'],
+    tools: ['React JS', 'Inertia.js', 'Laravel', 'Tailwind CSS', 'MySQL'],
     liveUrl: 'http://spendwise.infinityfree.io',
     images: [
       {
-        url: '/samples/spendwise.png',
+        url: SpendwiseOneImage,
         caption: 'SpendWise dashboard featuring real-time expense breakdowns, category summaries, and transactional logs.'
       },
       {
-        url: '/samples/spendwise-2.png',
+        url: SpendwiseTwoImage,
         caption: 'SpendWise dashboard featuring real-time expense breakdowns, category summaries, and transactional logs.'
       },
       {
-        url: '/samples/spendwise-3.png',
+        url: SpendwiseThreeImage,
         caption: 'SpendWise dashboard featuring real-time expense breakdowns, category summaries, and transactional logs.'
       },
       {
-        url: '/samples/spendwise-4.png',
+        url: SpendwiseFourImage,
         caption: 'SpendWise dashboard featuring real-time expense breakdowns, category summaries, and transactional logs.'
+      },
+      {
+        url: SpendwiseFiveImage,
+        caption: 'SpendWise transaction visualization.'
       }
     ],
     details: 'Engineered a full-stack expense and petty cash management system featuring authentication, category filtering, transactional tracking, and secure session management.'
@@ -185,19 +213,19 @@ const serviceSamplesData = {
     liveUrl: 'https://jyantikumar.github.io/Wkly/',
     images: [
       {
-        url: '/samples/weeekly.png',
+        url: WeeeklyOneImage,
         caption: 'Custom styled K-Pop fan website featuring responsive video embeds and interactive album showcases.'
       },
       {
-        url: '/samples/weeekly2.png',
+        url: WeeeklyTwoImage,
         caption: 'MV Display.'
       },
       {
-        url: '/samples/weeekly3.png',
+        url: WeeeklyThreeImage,
         caption: 'MV Display.'
       },
       {
-        url: '/samples/weeekly4.png',
+        url: WeeeklyFourImage,
         caption: 'MV Display.'
       },
     ],
@@ -212,7 +240,7 @@ const serviceSamplesData = {
     liveUrl: 'https://jyantikumar.github.io/VA/',
     images: [
       {
-        url: '/samples/va-portfolio.png',
+        url: VaPortfolioImage,
         caption: 'Virtual Assistant portfolio layout featuring service breakdowns, bento grids, and contact booking integrations.'
       }
     ],
@@ -224,8 +252,8 @@ export default function ServicesSection() {
   const [selectedSample, setSelectedSample] = useState(null);
 
   const handleCardClick = (sampleId) => {
-    if (serviceSamplesData[sampleId]) {
-      setSelectedSample(serviceSamplesData[sampleId]);
+    if (ServiceSamplesData[sampleId]) {
+      setSelectedSample(ServiceSamplesData[sampleId]);
     }
   };
 
@@ -445,7 +473,7 @@ export default function ServicesSection() {
                       <CardTitle className="text-base font-bold text-foreground">SpendWise Financial App</CardTitle>
                       <Eye className="w-4 h-4 text-cyan-accent opacity-0 group-hover:opacity-100 transition-opacity shrink-0" />
                     </div>
-                    <CardDescription className="text-xs mt-0.5">Vue 3, Inertia.js & Laravel App</CardDescription>
+                    <CardDescription className="text-xs mt-0.5">React JS, Tailwind Inertia.js & Laravel App</CardDescription>
                   </div>
                 </CardHeader>
                 <CardContent className="p-5 pt-0 text-xs text-muted-foreground leading-relaxed flex-1 flex flex-col justify-between">

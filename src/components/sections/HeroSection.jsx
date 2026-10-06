@@ -79,23 +79,28 @@ export default function HeroSection() {
 
             {/* Action Buttons */}
             <div className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+             <Button 
+      asChild
+      size="lg" 
+      className="bg-teal-brand hover:bg-teal-brand-hover text-white shadow-md shadow-teal-brand/20 gap-2 font-semibold px-6"
+    >
+      <a href="#contact">
+        <Calendar className="w-4 h-4" />
+        Book an Intro Call
+      </a>
+    </Button>
               <Button 
-                size="lg" 
-                className="bg-teal-brand hover:bg-teal-brand-hover text-white shadow-md shadow-teal-brand/20 gap-2 font-semibold px-6"
-              >
-                <Calendar className="w-4 h-4" />
-                Book an Intro Call
-              </Button>
-
-              <Button 
-                size="lg" 
-                variant="outline" 
-                className="border-border hover:border-cyan-accent text-foreground hover:bg-accent gap-2 font-medium px-6"
-              >
-                <BarChart3 className="w-4 h-4 text-cyan-accent" />
-                View Sample Work
-                <ArrowRight className="w-4 h-4 opacity-70" />
-              </Button>
+      asChild
+      size="lg" 
+      variant="outline" 
+      className="border-border hover:border-cyan-accent text-foreground hover:bg-accent gap-2 font-medium px-6"
+    >
+      <a href="#services">
+        <BarChart3 className="w-4 h-4 text-cyan-accent" />
+        View Sample Work
+        <ArrowRight className="w-4 h-4 opacity-70" />
+      </a>
+    </Button>
             </div>
           </Card>
 
